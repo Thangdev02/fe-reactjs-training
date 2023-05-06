@@ -1,0 +1,8 @@
+.members {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+}
+.member{
+    margin: 5%;
+}
