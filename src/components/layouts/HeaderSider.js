@@ -1,6 +1,7 @@
 import { LaptopOutlined, NotificationOutlined, UserOutlined } from '@ant-design/icons';
 import { Breadcrumb, Layout, Menu, theme } from 'antd';
 import React from 'react';
+import MyButton from '../commons/MyButton';
 const { Header, Content, Sider } = Layout;
 const items1 = ['1', '2', '3'].map((key) => ({
   key,
@@ -61,7 +62,7 @@ const HeaderSider = () => {
           >
             <Breadcrumb.Item>Home</Breadcrumb.Item>
             <Breadcrumb.Item>List</Breadcrumb.Item>
-            <Breadcrumb.Item>App</Breadcrumb.Item>
+            <Breadcrumb.Item>Member</Breadcrumb.Item>
           </Breadcrumb>
           <Content
             style={{
@@ -71,7 +72,7 @@ const HeaderSider = () => {
               background: colorBgContainer,
             }}
           >
-            Content
+            <MyButton href="./memberlist" text="View Member List"></MyButton>
           </Content>
         </Layout>
       </Layout>

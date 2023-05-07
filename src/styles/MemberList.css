@@ -1,8 +1,15 @@
 .members {
-   display: flex;
-   flex-direction: row;
-   flex-wrap: wrap;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    
 }
-.member{
-    margin: 5%;
+
+.member {
+    margin: 10%;
+    padding: 5%;
+}
+
+.viewdetails {
+    margin-bottom: 25%;
 }
