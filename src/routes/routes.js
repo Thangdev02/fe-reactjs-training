@@ -1,5 +1,5 @@
 export const routes = {
-    home:"/",
-    memberlist: "/memberlist",
-    memberdetails: "/memberdetails"
+    home:"/fe-web",
+    memberlist: "/fe-web/memberlist",
+    memberdetails: "/fe-web/memberdetails"
 }
