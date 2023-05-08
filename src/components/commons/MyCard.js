@@ -16,6 +16,5 @@ const MyCard = (props) => (
       </div>
     </Card>
   </Col>
-
 );
 export default MyCard;

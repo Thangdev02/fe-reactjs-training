@@ -3,7 +3,6 @@ import MyCard from "../commons/MyCard";
 import { members } from "../../utils/Data";
 import { useNavigate } from "react-router-dom"
 import "../../styles/MemberList.css"
-import MyButton from "../commons/MyButton";
 
 
 function MemberList() {
@@ -16,7 +15,7 @@ function MemberList() {
             <div className="members">
                 {members.map((member) => (
 
-                        <MyCard className="member" key={member.index} title={member.name} text={member.position} onClick={() => handleClick(member)} bttext="View Details" />
+                    <MyCard className="member" key={member.index} title={member.name} text={member.position} onClick={() => handleClick(member)} bttext="View Details" />
 
                 ))}
             </div>
