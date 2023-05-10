@@ -1,5 +1,6 @@
 export const routes = {
-  home: "/",
-  login: "/login",
-  register: "/register",
+  home: "/fe-reactjs-training/",
+  login: "/fe-reactjs-training/login",
+  register: "/fe-reactjs-training/register",
+
 };
