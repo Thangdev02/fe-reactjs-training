@@ -1,18 +1,29 @@
-import axios from "axios";
-import { ApiUrl } from "./ApiUrl";
+import { listAccount } from "../utils/fake";
 
+// ============ login method ============ //
 export const login = async (payload) => {
   try {
-    const response = await axios.post(ApiUrl.login, payload);
-    if (response) {
-      return true;
-    } else {
-      return false;
-    }
+    let response = null;
+    listAccount.forEach((account) => {
+      if (
+        account.username === payload.username &&
+        account.password === payload.password
+      ) {
+        response = account;
+      }
+    });
+    return response;
   } catch (error) {
     console.log(error);
   }
 };
 
-export const register = async (payload) => {};
-export const forgotPassword = async (payload) => {};
+// ============ register method ============ //
+export const register = async (payload) => {
+  try {
+    console.log(payload);
+    return true;
+  } catch (error) {
+    console.log(error);
+  }
+};

@@ -1,34 +1,24 @@
 import React, { useEffect, useState } from "react";
-import { loadCourse } from "../../services/HomeApi";
-import CourseCard from "../commons/CourseCard";
-import TextComponent from "../commons/TextComponent";
-import { colors } from "../../constants/colors";
+import { getUserProfile } from "../../services/HomeApi";
 
 function HomePage() {
-  const [courses, setCourses] = useState([]);
+  const [userProfile, setUserProfile] = useState(null);
 
-  const loadCourses = async () => {
-    const courses = await loadCourse();
-    setCourses(courses);
+  const loadUserProfile = async () => {
+    const userProfileResponse = await getUserProfile(1);
+    setUserProfile(userProfileResponse);
   };
 
   useEffect(() => {
-    loadCourses();
+    loadUserProfile();
   }, []);
 
   return (
-    <div>
-      <TextComponent
-        props={{
-          title: "Hello World!",
-          style: "s30b",
-          color: colors.primary,
-        }}
-      />
-      <h1>HomePage</h1>
-      {courses?.map((course, index) => {
-        return <CourseCard key={index} props={course} />;
-      })}
+    <div style={{marginLeft: 100}}>
+      <h1>User Profile</h1>
+      <h3>{userProfile?.name}</h3>
+      <h3>{userProfile?.email}</h3>
+      <h3>{userProfile?.phone}</h3>
     </div>
   );
 }

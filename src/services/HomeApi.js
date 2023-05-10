@@ -1,14 +1,15 @@
-import axios from "axios";
-import { ApiUrl } from "./ApiUrl";
+import { listAccountProfile } from "../utils/fake";
 
-export const loadCourse = async () => {
+// ============ get user profile by id ============ //
+export const getUserProfile = async (userId) => {
   try {
-    const response = await axios.get(ApiUrl.loadCourse);
-    if (response.data.data && response.data.data.length > 0) {
-      return response.data.data;
-    } else {
-      return [];
-    }
+    let userProfile = {};
+    listAccountProfile.forEach((profile) => {
+      if (profile.id === userId) {
+        userProfile = profile;
+      }
+    });
+    return userProfile;
   } catch (error) {
     console.log(error);
   }

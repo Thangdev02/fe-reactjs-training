@@ -1,17 +1,26 @@
 import React, { useState } from "react";
 import { login } from "../../services/AuthApi";
+import { useNavigate } from "react-router-dom";
+import { routes } from "../../routes";
+import { listMessage } from "../../constants/strings";
 
 function LoginPage() {
-  const [username, setUsername] = useState("nghiempt");
-  const [password, setPassword] = useState("123");
+  const navigate = useNavigate();
+
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleLogin = async () => {
-    handleUsernameChange();
-    handlePasswordChange();
-    const isLoginResponse = await login({ username, password });
+    const formData = {
+      username,
+      password,
+    };
+    const isLoginResponse = await login(formData);
     if (isLoginResponse) {
-      console.log("Login successfully!");
-      console.log("Login failed!");
+      console.log("🚀 ~ file: LoginPage ~ res:", listMessage.loginSuccess);
+      navigate(routes.home);
+    } else {
+      console.log("🚀 ~ file: LoginPage ~ res:", listMessage.loginFailed);
     }
   };
 
@@ -23,8 +32,16 @@ function LoginPage() {
   };
 
   return (
-    <div>
-      <h1>LoginPage</h1>
+    <div style={{ marginLeft: 100 }}>
+      <h1>Login</h1>
+      <br />
+      <p>username</p>
+      <input type="text" value={username} onChange={handleUsernameChange} />
+      <br />
+      <p>password</p>
+      <input type="text" value={password} onChange={handlePasswordChange} />
+      <br />
+      <br />
       <button onClick={() => handleLogin()}>Login</button>
     </div>
   );
